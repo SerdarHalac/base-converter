@@ -4,10 +4,20 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
-// bring in routers
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
+app.set('view engine', 'pug');
+
+const routes = require('./routes');
+
+app.use(routes);
+
+app.use((err, req, res, next) => {
+  res.locals.error = err;
+  res.status(err.status);
+  res.render('error');
+});
 
 // router modules
 

@@ -1,4 +1,5 @@
 import math
+import sys
 
 def convertNum(baseFrom, baseTo, number, alpha):
 	total = 0
@@ -27,8 +28,8 @@ def main():
 	alpha = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 	redo = True
 	while(redo):
-		numToConv = str(input("What number do you want to convert? ")).upper()
-		bFrom = int(input("What base are you converting from? [Enter Number (max of 36)] "))
+		numToConv = 1000
+		bFrom = 2
 		redo2 = False
 		for i in numToConv:
 			if alpha.index(i) >= bFrom:
@@ -42,9 +43,10 @@ def main():
 
 
 
-	bTo = int(input("What base are you converting to? [Enter number (max of 36)] "))
+	bTo = 10
 	stringer = convertNum(bFrom, bTo, numToConv, alpha)
-	print("Rebased number: " + stringer)
+	print(stringer)
+    sys.stdout.flush()
 
 if __name__ == "__main__":
 	main()
