@@ -6,9 +6,16 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  const numToConv = req.body.numberToConvert;
+  const baseFrom = req.body.baseFrom;
+  const baseTo = req.body.baseTo;
   let answerString = "";
   const {spawn} = require('child_process');
-  const pyProg = spawn('python', ['./baseConvert.py']);
+  const pyProg = spawn('python', ['./baseConvert.py',
+      numToConv,
+      baseFrom,
+      baseTo
+    ]);
 
   pyProg.stdout.on('data', (data) => {
     answerString += data.toString('utf8');
