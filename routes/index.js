@@ -6,12 +6,12 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  let answer = 0;
+  let answerString = "";
   const {spawn} = require('child_process');
-  const pyProg = spawn('python', ['../baseConvert.py']);
+  const pyProg = spawn('python', ['./baseConvert.py']);
 
   pyProg.stdout.on('data', (data) => {
-    answer = data.toString('utf8');
+    answerString += data.toString('utf8');
   });
 
   pyProg.stderr.on('data', (data) => {
@@ -20,9 +20,10 @@ router.post('/', (req, res) => {
 
   pyProg.on('exit', (code) => {
     console.log("Python code stopped with code : " + code);
+    res.render('answer', {answerString});
   });
 
-  res.render('answer', {answer});
+
 });
 
 module.exports = router;

@@ -25,27 +25,23 @@ def convertNum(baseFrom, baseTo, number, alpha):
 	return "".join([alpha[x] for x in numberList])
 
 def main():
-	alpha = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-	redo = True
-	while(redo):
-		numToConv = 1000
-		bFrom = 2
-		redo2 = False
-		for i in numToConv:
-			if alpha.index(i) >= bFrom:
-				redo2 = True
-		if (not redo2):
-			redo = False
-		else:
-			print("The inputed number is not possible at this base.\nPlease either change the base or number.")
+    alpha = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    redo = True
+    while(redo):
+        numToConv = "1000"
+        bFrom = 2
+        redo2 = False
+        for i in numToConv:
+            if alpha.index(i) >= bFrom:
+                redo2 = True
+        if (not redo2):
+            redo = False
+        else:
+            print("The inputed number is not possible at this base.\nPlease either change the base or number.")
 
-
-
-
-
-	bTo = 10
-	stringer = convertNum(bFrom, bTo, numToConv, alpha)
-	print(stringer)
+    bTo = 10
+    stringer = convertNum(bFrom, bTo, numToConv, alpha)
+    print(stringer)
     sys.stdout.flush()
 
 if __name__ == "__main__":
