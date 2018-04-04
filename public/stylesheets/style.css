@@ -1,4 +1,8 @@
+#converter {
+  text-align: center;
+}
+
 #banner {
-  width: 600px;
-  height: 70px;
+  width: 100vw;
+  height: 50px;
 }
